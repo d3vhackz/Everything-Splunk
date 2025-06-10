@@ -30,4 +30,4 @@ For example:
 
 You can use wildcards for search flexibility.
 For example:
-- index=botsv3 user="*admin*"
+- index=botsv3 user="* admin *"
