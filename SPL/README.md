@@ -12,7 +12,7 @@ For example:
 
 You can search for specific IP addresses either in the source field or not.
 For example:
-- index=botsv3 src_ip="172.16.0.178"
+```index=botsv3 src_ip="172.16.0.178"```
 
 ### Search For Login Failures In a Specific Time Range
 
