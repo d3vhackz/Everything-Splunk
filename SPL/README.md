@@ -1,63 +1,82 @@
 # Splunk Processing Language (SPL)
 
-## Search Command
+A curated collection of essential SPL commands for fast referencing and learning. Each snippet is tailored for real-world use cases in threat hunting, troubleshooting, and data analysis.
 
-### Search For Specific Error Messages
+## Search Command Reference
 
-You can search for specific words in the search bar.
-For example:
-```index=botsv3 ("error" OR "failed" OR "failure")```
+### **Search for Specific Error Messages**
+**Use case:** Identify events that contain common error keywords.  
+**Example SPL:**  
+`index=botsv3 ("error" OR "failed" OR "failure")`
 
-### Filter Events by Source IP Address
+---
 
-You can search for specific IP addresses either in the source field or not.
-For example:
-```index=botsv3 src_ip="172.16.0.178"```
+### **Filter Events by Source IP Address**
+**Use case:** Narrow results to events from a specific source IP.  
+**Example SPL:**  
+`index=botsv3 src_ip="172.16.0.178"`
 
-### Search For Login Failures In a Specific Time Range
+---
 
-You can search for events witin a certain time frame.
-For example:
-```index=botsv3 EventCode=4625 earliest=-15y latest=-5y```
+### **Search for Login Failures in a Specific Time Range**
+**Use case:** Analyze failed login attempts over a defined historical period.  
+**Example SPL:**  
+`index=botsv3 EventCode=4625 earliest=-15y latest=-5y`
 
-### Filter by Event Type and Status Code
+---
 
-Typically event types are part of a data administrative tool. If you're going to put things into data models, they're going to come with an event type.
-For example:
-```index=botsv3 eventtype="cpu" cpu="all"```
+### **Filter by Event Type and Status Code**
+**Use case:** Isolate events of a certain type, useful for data model filtering.  
+**Example SPL:**  
+`index=botsv3 eventtype="cpu" cpu="all"`
 
-### Combine Search with Wildcards For Flexible Filtering
+---
 
-You can use wildcards for search flexibility.
-For example:
-```index=botsv3 user="*admin*"```
+### **Use Wildcards for Flexible User Filtering**
+**Use case:** Find usernames containing specific patterns (e.g. admin access).  
+**Example SPL:**  
+`index=botsv3 user="*admin*"`
 
-### Search For Events with High Byte Count
+---
 
-You can use greater and less than symbols.
-For example:
-```index=botsv3 bytes>1000000```
+### **Search for Events with High Byte Count**
+**Use case:** Spot data-heavy events for bandwidth analysis or anomalies.  
+**Example SPL:**  
+`index=botsv3 bytes>1000000`
 
-### Search for Specific Event IDs
+---
 
-You can search for multiple event IDs at once.
-For example:
-```index=botsv3 EventCode IN (4624, 4625, 4634)``` or ```index=botsv3 NOT EventCode IN (4625)```
+### **Search for Specific Event IDs**
+**Use case:** Focus on relevant Windows Security Events or exclude noise.  
+**Example SPL:**  
+`index=botsv3 EventCode IN (4624, 4625, 4634)`  
+`index=botsv3 NOT EventCode IN (4625)`
 
-### Filter Web Requests by URL Path
+---
 
-You can search for where users are going when they browse websites.
-For example:
-```index=botsv3 sourcetype=stream:http uri_path="/admin*"```
+### **Filter Web Requests by URL Path**
+**Use case:** Investigate access to specific web application paths.  
+**Example SPL:**  
+`index=botsv3 sourcetype=stream:http uri_path="/admin*"`
 
-### Search by Protocol and Application Stack
+---
 
-You can search for certain protocols and application stacks.
-For example:
-```index=botsv3 amazon_aws protocol="tcp"```
+### **Search by Protocol and Application Stack**
+**Use case:** Examine traffic for specific cloud providers or stack layers.  
+**Example SPL:**  
+`index=botsv3 amazon_aws protocol="tcp"`
 
-### Find Events with Googlebot User Agent
+---
 
-Good for security checks against Google bot.
-For example:
-```index=botsv3 useragent="googlebot*"```
+### **Find Events with Googlebot User Agent**
+**Use case:** Identify or validate bot traffic from known sources like Google.  
+**Example SPL:**  
+`index=botsv3 useragent="googlebot*"`
+
+---
+
+## 🔍 More SPL Tips Coming Soon...
+
+Stay tuned for advanced SPL techniques, dashboard snippets, and real-world use cases.  
+Want to contribute or suggest a command? Open an issue or PR on this repo.
+
