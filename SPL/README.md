@@ -75,8 +75,5 @@ A curated collection of essential SPL commands for fast referencing and learning
 
 ---
 
-## 🔍 More SPL Tips Coming Soon...
 
-Stay tuned for advanced SPL techniques, dashboard snippets, and real-world use cases.  
-Want to contribute or suggest a command? Open an issue or PR on this repo.
 
