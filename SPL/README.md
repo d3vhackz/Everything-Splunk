@@ -31,3 +31,33 @@ For example:
 You can use wildcards for search flexibility.
 For example:
 ```index=botsv3 user="*admin*"```
+
+### Search For Events with High Byte Count
+
+You can use greater and less than symbols.
+For example:
+```index=botsv3 bytes>1000000```
+
+### Search for Specific Event IDs
+
+You can search for multiple event IDs at once.
+For example:
+```index=botsv3 EventCode IN (4624, 4625, 4634)``` or ```index=botsv3 NOT EventCode IN (4625)```
+
+### Filter Web Requests by URL Path
+
+You can search for where users are going when they browse websites.
+For example:
+```index=botsv3 sourcetype=stream:http uri_path="/admin*"```
+
+### Search by Protocol and Application Stack
+
+You can search for certain protocols and application stacks.
+For example:
+```index=botsv3 amazon_aws protocol="tcp"```
+
+### Find Events with Googlebot User Agent
+
+Good for security checks against Google bot.
+For example:
+```index=botsv3 useragent="googlebot*"```
